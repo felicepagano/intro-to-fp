@@ -1,0 +1,30 @@
+{
+  "name": "fp",
+  "version": "1.0.0",
+  "description": "esercizi di programmazione funzionale in ts",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felicepagano/intro-to-fp.git"
+  },
+  "keywords": [
+    "fp"
+  ],
+  "author": "Felice Pagano <paganofelice@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felicepagano/intro-to-fp/issues"
+  },
+  "homepage": "https://github.com/felicepagano/intro-to-fp#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.3",
+    "@types/mocha": "^5.2.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "ts-node": "^6.0.2",
+    "typescript": "^2.8.3"
+  }
+}

@@ -21,6 +21,11 @@ describe("Tuple functor", () => {
 
 describe("Tuple bifunctor", () => {
 
+  it("bimap(x, identity, identity) = x", () => {
+    const result = bimap(["Pippo", 1], (s: string) => s, (i: number) => i);
+    expect(result).to.eql(["Pippo", 1]);
+  });
+
   it("should return [5,2]", () => {
     const result = bimap(["Pippo", 1], l, double);
     expect(result).to.eql([5, 2]);

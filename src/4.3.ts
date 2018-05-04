@@ -1,8 +1,7 @@
 type Decoder<A> = (s: string) => A;
 type Reader<E, A> = (e: E) => A;
 
-const map = <A, B>(f: (a: A) => B, value: Decoder<A>): Decoder<B> => (s: string) => f(value(s));
-
+const map = <A, B>(f: (a: A) => B, value: Decoder<A>): Decoder<B> => (s: string): B => f(value(s));
 const map2 = <E, A, B>(f: (a: A) => B, value: Reader<E, A>): Reader<E, B> => (e: E): B => f(value(e));
 
 import { expect } from "chai";

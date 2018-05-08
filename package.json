@@ -4,7 +4,8 @@
   "description": "esercizi di programmazione funzionale in ts",
   "main": "server.js",
   "scripts": {
-    "test": "mocha -r ts-node/register src/**/*.ts"
+    "test": "mocha -r ts-node/register src/**/*.ts",
+    "ts": "ts-node tmp.ts"
   },
   "repository": {
     "type": "git",

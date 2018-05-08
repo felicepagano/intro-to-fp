@@ -4,8 +4,16 @@ const map = <A, B, C>(f: (a: A) => C, value: Tuple<A, B>): Tuple<C, B> => [f(val
 const map2 = <A, B, C>(f: (a: B) => C, value: Tuple<A, B>): Tuple<A, C> => [value[0], f(value[1])];
 const bimap = <L, A, M, B>(fla: Tuple<L, A>, f: (l: L) => M, g: (a: A) => B): Tuple<M, B> => [f(fla[0]), g(fla[1])];
 
-const double = (i: number) => i * 2;
+const of = <A>(a: A): Tuple<A, number> => [a, 0];
+
+const concatNumber = (x: number, y: number) => x + y;
+const concatString = (x: string, y: string) => x + y;
+
+const ap = <A, C>(fab: Tuple<(a: A) => C, number>, value: Tuple<A, number>): Tuple<C, number> =>
+ [fab[0](value[0]), concatNumber(fab[1], value[1])];
+
 const l = (s: string) => s.length;
+const double = (i: number) => i * 2;
 
 import { expect } from "chai";
 import "mocha";
@@ -29,6 +37,15 @@ describe("Tuple bifunctor", () => {
   it("should return [5,2]", () => {
     const result = bimap(["Pippo", 1], l, double);
     expect(result).to.eql([5, 2]);
+  });
+
+});
+
+describe("Tuple Applicative Functor", () => {
+
+  it("should return [2, 1]", () => {
+    const doubleTuple = ap(of(double), [1, 1]);
+    expect(doubleTuple).to.eql([2, 1]);
   });
 
 });
